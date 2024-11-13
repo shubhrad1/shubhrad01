@@ -49,7 +49,7 @@ const Projects = () => {
                         </Typography>
                         <Typography variant="body2">
                             <Box fontFamily={"monospace"}>
-                                <a href={project.github}>Github</a>
+                                <a href={project.github}>Project Link</a>
                             </Box>
                         </Typography>
                     </Card>
