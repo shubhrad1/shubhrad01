@@ -9,15 +9,21 @@ const Skills = () => {
             </Typography>
             <div
                 style={{
-                    display: "flex",
+                    display: "grid",
                     padding: "1rem",
-                    justifyContent: "space-evenly",
+                    gridTemplateColumns:
+                        "repeat(auto-fill, minmax(200px, 1fr))",
+                    gap: "20px",
+
+                    justifyContent: "center",
                 }}
             >
                 <Card
                     sx={{
-                        background: "none",
+                        background: "rgba(255, 255, 255, 0.08)",
                         margin: "1rem",
+                        padding: "0.5rem",
+                        backdropFilter: "blur(10px)",
                     }}
                 >
                     <Typography
@@ -41,7 +47,14 @@ const Skills = () => {
                         <Box textAlign={"center"}>C++</Box>
                     </Typography>
                 </Card>
-                <Card sx={{ background: "none", margin: "1rem" }}>
+                <Card
+                    sx={{
+                        background: "rgba(255, 255, 255, 0.08)",
+                        margin: "1rem",
+                        backdropFilter: "blur(10px)",
+                        padding: "0.5rem",
+                    }}
+                >
                     <Typography
                         variant="h6"
                         color="#deecfc"
@@ -62,7 +75,14 @@ const Skills = () => {
                         <Box textAlign={"center"}>ReactJS</Box>
                     </Typography>
                 </Card>
-                <Card sx={{ background: "none", margin: "1rem" }}>
+                <Card
+                    sx={{
+                        background: "rgba(255, 255, 255, 0.08)",
+                        margin: "1rem",
+                        backdropFilter: "blur(10px)",
+                        padding: "0.5rem",
+                    }}
+                >
                     <Typography
                         variant="h6"
                         color="#deecfc"
@@ -82,7 +102,14 @@ const Skills = () => {
                         <Box textAlign={"center"}>MongoDB</Box>
                     </Typography>
                 </Card>
-                <Card sx={{ background: "none", margin: "1rem" }}>
+                <Card
+                    sx={{
+                        background: "rgba(255, 255, 255, 0.08)",
+                        margin: "1rem",
+                        backdropFilter: "blur(10px)",
+                        padding: "0.5rem",
+                    }}
+                >
                     <Typography
                         variant="h6"
                         color="#deecfc"
@@ -101,7 +128,14 @@ const Skills = () => {
                         <Box textAlign={"center"}>GraphQL</Box>
                     </Typography>
                 </Card>
-                <Card sx={{ background: "none", margin: "1rem" }}>
+                <Card
+                    sx={{
+                        background: "rgba(255, 255, 255, 0.08)",
+                        margin: "1rem",
+                        backdropFilter: "blur(10px)",
+                        padding: "0.5rem",
+                    }}
+                >
                     <Typography
                         variant="h6"
                         color="#deecfc"
@@ -120,7 +154,14 @@ const Skills = () => {
                         <Box textAlign={"center"}>Kubernetes</Box>
                     </Typography>
                 </Card>
-                <Card sx={{ background: "none", margin: "1rem" }}>
+                <Card
+                    sx={{
+                        background: "rgba(255, 255, 255, 0.08)",
+                        margin: "1rem",
+                        backdropFilter: "blur(10px)",
+                        padding: "0.5rem",
+                    }}
+                >
                     <Typography
                         variant="h6"
                         color="#deecfc"
@@ -140,7 +181,14 @@ const Skills = () => {
                         <Box textAlign={"center"}>Postman</Box>
                     </Typography>
                 </Card>
-                <Card sx={{ background: "none", margin: "1rem" }}>
+                <Card
+                    sx={{
+                        background: "rgba(255, 255, 255, 0.08)",
+                        margin: "1rem",
+                        backdropFilter: "blur(10px)",
+                        padding: "0.5rem",
+                    }}
+                >
                     <Typography
                         variant="h6"
                         color="#deecfc"
