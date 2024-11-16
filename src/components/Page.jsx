@@ -29,7 +29,7 @@ const Page = () => {
     return (
         <div
             style={{
-                backgroundImage: "url(9067915.jpg)",
+                backgroundImage: "url(background.jpg)",
                 backgroundSize: "cover",
                 backgroundRepeat: "no-repeat",
                 backgroundAttachment: "fixed",

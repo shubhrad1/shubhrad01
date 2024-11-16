@@ -5,7 +5,7 @@ const Hero = () => {
     return (
         <div style={{ padding: "30 0" }}>
             <img
-                src="myimg.png"
+                src="myimgnew.png"
                 alt="myimg"
                 width="40%"
                 style={{
