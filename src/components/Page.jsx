@@ -31,7 +31,9 @@ const Page = () => {
             style={{
                 backgroundImage: "url(background.jpg)",
                 backgroundSize: "cover",
+                WebkitBackgroundSize: "cover",
                 backgroundRepeat: "no-repeat",
+
                 backgroundAttachment: "fixed",
                 backgroundPosition: "center",
             }}
