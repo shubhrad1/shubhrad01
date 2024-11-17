@@ -1,7 +1,34 @@
 import { Typography, Box } from "@mui/material";
-import React from "react";
+import { React, useState, useEffect } from "react";
 
 const About = () => {
+    const [isPhone, setIsPhone] = useState(false);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setIsPhone(window.innerWidth < 768);
+        };
+        window.addEventListener("resize", handleResize);
+        handleResize();
+        return () => {
+            window.removeEventListener("resize", handleResize);
+        };
+    }, []);
+
+    const boxStyle = (isPhone) => {
+        if (isPhone) {
+            return {
+                display: "flex",
+                justifyContent: "center",
+            };
+        } else {
+            return {
+                display: "flex",
+                justifyContent: "left",
+            };
+        }
+    };
+
     return (
         <div>
             <Typography variant="h4" color="#deecfc">
@@ -29,6 +56,7 @@ const About = () => {
                             fontWeight="fontWeightBold"
                             fontFamily={"monospace"}
                             color={"#deecfc"}
+                            sx={boxStyle(isPhone)}
                         >
                             Hi, I'm Shubhradeep Das 👋
                         </Box>
@@ -36,29 +64,29 @@ const About = () => {
                     <Typography variant="body1">
                         <Box fontFamily={"monospace"} color={"#deecfc"}>
                             <ul style={{ listStyle: "none" }}>
-                                <li>
+                                <li style={{ marginTop: "0.5rem" }}>
                                     💻 I am a Software Developer with a passion
                                     for creating innovative solutions.
                                 </li>
-                                <li>
+                                <li style={{ marginTop: "0.5rem" }}>
                                     💼 Currently working as Web Development
                                     Intern at Zidio Development.
                                 </li>
-                                <li>
+                                <li style={{ marginTop: "0.5rem" }}>
                                     🎓 Graduated with a B.Tech in Electronics &
                                     Communications Engineering from IIT Guwahati
                                     in 2024.
                                 </li>
-                                <li>
+                                <li style={{ marginTop: "0.5rem" }}>
                                     🚀 Constantly learning and improving my
                                     skills in Full Stack Development.
                                 </li>
-                                <li>
+                                <li style={{ marginTop: "0.5rem" }}>
                                     🌱 Working on my problem solving skills,
                                     competitive programming and open-source
                                     development.
                                 </li>
-                                <li>
+                                <li style={{ marginTop: "0.5rem" }}>
                                     📝 Distributed Systems and AI/ML enthusiast.
                                 </li>
                             </ul>
