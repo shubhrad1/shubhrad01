@@ -1,19 +1,4 @@
 .loading-page {
-    /* position: "absolute",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    top: "0",
-    left: "0",
-
-    height: "100vh",
-    width: "100vw",
-    backgroundColor: " #0a0a0a",
-    color: "#00ff00",
-    fontFamily: "monospace",
-    fontSize: "1.5rem",
-    zIndex: "100",
-    opacity: "1", */
     position: absolute;
     display: flex;
     justify-content: center;

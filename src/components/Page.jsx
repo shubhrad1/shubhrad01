@@ -27,17 +27,7 @@ const Page = () => {
         }, 1000);
     };
     return (
-        <div
-            style={{
-                backgroundImage: "url(background.jpg)",
-                backgroundSize: "cover",
-                WebkitBackgroundSize: "cover",
-                backgroundRepeat: "no-repeat",
-
-                backgroundAttachment: "fixed",
-                backgroundPosition: "center",
-            }}
-        >
+        <div>
             <Loader onComplete={onLoaded} />
             <div className="home" style={{ display: "none" }}>
                 <AppBar
