@@ -66,11 +66,11 @@ export function Hero() {
                             icon={<Github className="w-5 h-5" />}
                         />
                         <SocialLink
-                            href="https://linkedin.com"
+                            href="https://linkedin.com/in/shubhradeepdas"
                             icon={<Linkedin className="w-5 h-5" />}
                         />
                         <SocialLink
-                            href="https://twitter.com"
+                            href="https://twitter.com/shubhrad1"
                             icon={<Twitter className="w-5 h-5" />}
                         />
                     </div>

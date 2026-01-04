@@ -172,6 +172,7 @@ export function Contact() {
                                 className="space-y-6"
                                 data-netlify="true"
                                 netlify-honeypot="bot-field"
+                                data-netlify-recaptcha="true"
                                 onSubmit={handleSubmit}
                             >
                                 <input
@@ -235,6 +236,7 @@ export function Contact() {
                                 </div>
 
                                 <input type="hidden" name="bot-field" />
+                                <div data-netlify-recaptcha="true"></div>
 
                                 <button
                                     type="submit"
