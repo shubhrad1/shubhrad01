@@ -98,6 +98,7 @@ export function Contact() {
                             className="space-y-6"
                             data-netlify="true"
                             data-netlify-recaptcha="true"
+                            method="POST"
                         >
                             <div data-netlify-recaptcha="true"></div>
                             <div className="space-y-2">
