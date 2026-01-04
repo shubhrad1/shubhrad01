@@ -82,7 +82,7 @@ export function Hero() {
                     transition={{ duration: 0.8, delay: 0.2 }}
                     className="relative flex justify-center md:justify-end"
                 >
-                    <div className="relative w-80 h-80 md:w-[28rem] md:h-[28rem]">
+                    <div className="relative w-80 h-80 mb-8 md:mb-0 md:w-[28rem] md:h-[28rem]">
                         {/* Glowing ring behind image */}
                         <div className="absolute inset-0 rounded-full border-2 border-primary/30 rotate-12 scale-105" />
                         <div className="absolute inset-0 rounded-full border-2 border-purple-500/20 -rotate-6 scale-110" />
@@ -106,7 +106,7 @@ export function Hero() {
                                 duration: 4,
                                 ease: "easeInOut",
                             }}
-                            className="absolute bottom-8 -left-4 md:-left-8 bg-card/80 backdrop-blur-md border border-white/10 p-4 rounded-2xl shadow-xl z-20 flex items-center gap-3"
+                            className="absolute bottom-[0.5rem] md:bottom-8 -left-4 md:-left-8 bg-card/80 backdrop-blur-md border border-white/10 p-2 md:p-4 rounded-2xl shadow-xl z-20 flex items-center gap-3"
                         >
                             <div className="w-10 h-10 rounded-full bg-green-500/20 flex items-center justify-center">
                                 <div className="w-3 h-3 rounded-full bg-green-500 animate-pulse" />
