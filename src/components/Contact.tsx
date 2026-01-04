@@ -25,20 +25,16 @@ export function Contact() {
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        const form = e.target;
+        const form = e.currentTarget;
         const data = new FormData(form as HTMLFormElement);
-
-        data.append("form-name", "contact");
-        data.append("bot-field", "");
-
-        Object.entries(formData).forEach(([key, value]) => {
-            data.append(key, value);
-        });
 
         try {
             await fetch("/", {
                 method: "POST",
-                body: data,
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded",
+                },
+                body: new URLSearchParams(data as any).toString(),
             });
             toast({
                 title: "Message sent",
@@ -150,7 +146,6 @@ export function Contact() {
                             className="space-y-6"
                             data-netlify="true"
                             netlify-honeypot="bot-field"
-                            data-netlify-recaptcha="true"
                             onSubmit={handleSubmit}
                         >
                             <input
@@ -158,8 +153,6 @@ export function Contact() {
                                 name="form-name"
                                 value="contact"
                             />
-                            <input type="hidden" name="bot-field" />
-                            <div data-netlify-recaptcha="true"></div>
 
                             <div className="space-y-2">
                                 <label
@@ -214,6 +207,8 @@ export function Contact() {
                                     required
                                 />
                             </div>
+
+                            <input type="hidden" name="bot-field" />
 
                             <button
                                 type="submit"
