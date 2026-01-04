@@ -2,8 +2,53 @@ import { motion } from "framer-motion";
 import { Mail, MapPin, Send } from "lucide-react";
 import { Input } from "../components/ui/input";
 import { Textarea } from "../components/ui/textarea";
+import { useState } from "react";
+import { useToast } from "../hooks/use-toast";
 
 export function Contact() {
+    const [formData, setFormData] = useState({
+        name: "",
+        email: "",
+        message: "",
+    });
+    const { toast } = useToast();
+
+    const handleChange = (
+        e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    ) => {
+        const { name, value } = e.target;
+        setFormData((prevData) => ({
+            ...prevData,
+            [name]: value,
+        }));
+    };
+
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        const form = e.target;
+        const data = new FormData(form as HTMLFormElement);
+
+        try {
+            await fetch("/", {
+                method: "POST",
+                body: data,
+            });
+
+            toast({
+                title: "Message sent",
+                description:
+                    "Thank you for reaching out. I'll get back to you soon.",
+            });
+        } catch (err) {
+            toast({
+                title: "Error",
+                description: "Something went wrong. Please try again later.",
+                variant: "destructive",
+            });
+        }
+
+        setFormData({ name: "", email: "", message: "" });
+    };
     return (
         <section id="contact" className="py-24 relative overflow-hidden">
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[100px] -z-10 pointer-events-none" />
@@ -95,12 +140,19 @@ export function Contact() {
                         className="bg-card p-8 rounded-2xl border border-white/5 shadow-xl shadow-black/20"
                     >
                         <form
+                            name="contact"
                             className="space-y-6"
                             data-netlify="true"
+                            netlify-honeypot="bot-field"
                             data-netlify-recaptcha="true"
-                            method="POST"
+                            onSubmit={handleSubmit}
                         >
-                            <div data-netlify-recaptcha="true"></div>
+                            <input
+                                type="hidden"
+                                name="form-name"
+                                value="contact"
+                            />
+                            <input type="hidden" name="bot-field" />
                             <div className="space-y-2">
                                 <label
                                     htmlFor="name"
@@ -109,6 +161,10 @@ export function Contact() {
                                     Name
                                 </label>
                                 <Input
+                                    id="name"
+                                    name="name"
+                                    value={formData.name}
+                                    onChange={handleChange}
                                     placeholder="John Doe"
                                     className="bg-white/5 border-white/10 focus:border-primary/50 focus:ring-primary/20 h-12 rounded-xl"
                                     required
@@ -123,6 +179,10 @@ export function Contact() {
                                     Email
                                 </label>
                                 <Input
+                                    id="email"
+                                    name="email"
+                                    value={formData.email}
+                                    onChange={handleChange}
                                     placeholder="john@example.com"
                                     className="bg-white/5 border-white/10 focus:border-primary/50 focus:ring-primary/20 h-12 rounded-xl"
                                     required
@@ -137,6 +197,10 @@ export function Contact() {
                                     Message
                                 </label>
                                 <Textarea
+                                    id="message"
+                                    name="message"
+                                    value={formData.message}
+                                    onChange={handleChange}
                                     placeholder="Tell me about your project..."
                                     className="bg-white/5 border-white/10 focus:border-primary/50 focus:ring-primary/20 min-h-[150px] rounded-xl resize-none"
                                     required
