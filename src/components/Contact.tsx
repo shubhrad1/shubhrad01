@@ -28,6 +28,13 @@ export function Contact() {
         const form = e.target;
         const data = new FormData(form as HTMLFormElement);
 
+        data.append("form-name", "contact");
+        data.append("bot-field", "");
+
+        Object.entries(formData).forEach(([key, value]) => {
+            data.append(key, value);
+        });
+
         try {
             await fetch("/", {
                 method: "POST",
