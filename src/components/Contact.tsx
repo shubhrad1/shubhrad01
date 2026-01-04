@@ -40,7 +40,6 @@ export function Contact() {
                 method: "POST",
                 body: data,
             });
-
             toast({
                 title: "Message sent",
                 description:
@@ -160,6 +159,8 @@ export function Contact() {
                                 value="contact"
                             />
                             <input type="hidden" name="bot-field" />
+                            <div data-netlify-recaptcha="true"></div>
+
                             <div className="space-y-2">
                                 <label
                                     htmlFor="name"
