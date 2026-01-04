@@ -94,7 +94,12 @@ export function Contact() {
                         viewport={{ once: true }}
                         className="bg-card p-8 rounded-2xl border border-white/5 shadow-xl shadow-black/20"
                     >
-                        <form className="space-y-6" netlify>
+                        <form
+                            className="space-y-6"
+                            data-netlify="true"
+                            data-netlify-recaptcha="true"
+                        >
+                            <div data-netlify-recaptcha="true"></div>
                             <div className="space-y-2">
                                 <label
                                     htmlFor="name"
