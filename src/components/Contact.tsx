@@ -94,7 +94,12 @@ export function Contact() {
                         viewport={{ once: true }}
                         className="bg-card p-8 rounded-2xl border border-white/5 shadow-xl shadow-black/20"
                     >
-                        <form className="space-y-6">
+                        <form
+                            className="space-y-6"
+                            data-netlify="true"
+                            data-netlify-recaptcha="true"
+                        >
+                            <div data-netlify-recaptcha="true"></div>
                             <div className="space-y-2">
                                 <label
                                     htmlFor="name"
@@ -105,6 +110,7 @@ export function Contact() {
                                 <Input
                                     placeholder="John Doe"
                                     className="bg-white/5 border-white/10 focus:border-primary/50 focus:ring-primary/20 h-12 rounded-xl"
+                                    required
                                 />
                             </div>
 
@@ -118,6 +124,7 @@ export function Contact() {
                                 <Input
                                     placeholder="john@example.com"
                                     className="bg-white/5 border-white/10 focus:border-primary/50 focus:ring-primary/20 h-12 rounded-xl"
+                                    required
                                 />
                             </div>
 
@@ -131,6 +138,7 @@ export function Contact() {
                                 <Textarea
                                     placeholder="Tell me about your project..."
                                     className="bg-white/5 border-white/10 focus:border-primary/50 focus:ring-primary/20 min-h-[150px] rounded-xl resize-none"
+                                    required
                                 />
                             </div>
 
