@@ -1,0 +1,99 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    /* Modern Dark Mode Aesthetic Palette - Deep, Rich, Minimal */
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+
+    /* Vibrant Accent - Electric Indigo/Violet */
+    --primary: 263 70% 50%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 240 4% 16%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 240 4% 16%;
+    --muted-foreground: 240 5% 65%;
+
+    --accent: 263 70% 50%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 240 4% 16%;
+    --input: 240 4% 16%;
+    --ring: 263 70% 50%;
+
+    --radius: 0.75rem;
+
+    /* Typography */
+    --font-sans: "Outfit", sans-serif;
+    --font-display: "Space Grotesk", sans-serif;
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+    body {
+        @apply bg-background text-foreground antialiased selection:bg-primary/30 selection:text-primary-foreground;
+        font-family: var(--font-sans);
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: var(--font-display);
+        @apply font-bold tracking-tight;
+    }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: hsl(var(--background));
+}
+
+::-webkit-scrollbar-thumb {
+    background: hsl(var(--secondary));
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary) / 0.5);
+}
+
+/* Glassmorphism Utilities */
+.glass {
+    @apply bg-background/60 backdrop-blur-xl border border-white/10;
+}
+
+.glass-card {
+    @apply bg-card/50 backdrop-blur-md border border-white/5 hover:border-primary/50 transition-colors duration-300;
+}
+
+/* Animation Utilities */
+.text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-white via-white to-white/50;
+}
+
+.text-gradient-primary {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-purple-400 to-pink-400;
+}
