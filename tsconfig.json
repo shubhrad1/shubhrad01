@@ -2,7 +2,7 @@
     "compilerOptions": {
         "baseUrl": "./",
         "paths": {
-            "@/*": ["src_dec/*"] // Ensure '@/*' maps to 'src/*'
+            "@/*": ["./src/*"] // Ensure '@/*' maps to './src/*'
         }
     },
     "files": [],
