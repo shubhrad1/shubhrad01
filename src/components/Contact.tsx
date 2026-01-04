@@ -28,12 +28,18 @@ export function Contact() {
         const form = e.target;
         const data = new FormData(form as HTMLFormElement);
 
+        data.append("form-name", "contact");
+        data.append("bot-field", "");
+
+        Object.entries(formData).forEach(([key, value]) => {
+            data.append(key, value);
+        });
+
         try {
             await fetch("/", {
                 method: "POST",
                 body: data,
             });
-
             toast({
                 title: "Message sent",
                 description:
@@ -153,6 +159,8 @@ export function Contact() {
                                 value="contact"
                             />
                             <input type="hidden" name="bot-field" />
+                            <div data-netlify-recaptcha="true"></div>
+
                             <div className="space-y-2">
                                 <label
                                     htmlFor="name"
