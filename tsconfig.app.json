@@ -30,5 +30,6 @@
         "noFallthroughCasesInSwitch": true,
         "noUncheckedSideEffectImports": true
     },
-    "include": ["src_dec"]
+    "include": ["src"],
+    "exclude": ["src/hooks/use-messages.ts"]
 }
