@@ -1,45 +1,50 @@
-@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-    /* Modern Dark Mode Aesthetic Palette - Deep, Rich, Minimal */
-    --background: 240 10% 3.9%;
-    --foreground: 0 0% 98%;
+    /* Neumorphic white/grey — single base color, depth comes from shadow only */
+    --background: 220 23% 92%;
+    --foreground: 222 20% 20%;
 
-    --card: 240 10% 3.9%;
-    --card-foreground: 0 0% 98%;
+    --card: 220 23% 92%;
+    --card-foreground: 222 20% 20%;
 
-    --popover: 240 10% 3.9%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 220 23% 92%;
+    --popover-foreground: 222 20% 20%;
 
-    /* Vibrant Accent - Electric Indigo/Violet */
-    --primary: 263 70% 50%;
-    --primary-foreground: 210 40% 98%;
+    /* Accent — warm amber, reserved for interactive/active states */
+    --primary: 32 85% 50%;
+    --primary-foreground: 220 23% 97%;
 
-    --secondary: 240 4% 16%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 220 20% 88%;
+    --secondary-foreground: 222 20% 20%;
 
-    --muted: 240 4% 16%;
-    --muted-foreground: 240 5% 65%;
+    --muted: 220 20% 88%;
+    --muted-foreground: 222 10% 45%;
 
-    --accent: 263 70% 50%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 32 85% 50%;
+    --accent-foreground: 220 23% 97%;
 
-    --destructive: 0 63% 31%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 6 65% 48%;
+    --destructive-foreground: 220 23% 97%;
 
-    --border: 240 4% 16%;
-    --input: 240 4% 16%;
-    --ring: 263 70% 50%;
+    --border: 220 15% 80%;
+    --input: 220 15% 80%;
+    --ring: 32 85% 50%;
 
-    --radius: 0.75rem;
+    --radius: 1.25rem;
+
+    /* Neumorphic shadow pair — white highlight, soft grey shadow */
+    --neu-dark: 220 25% 70%;
+    --neu-light: 0 0% 100%;
 
     /* Typography */
     --font-sans: "Outfit", sans-serif;
     --font-display: "Space Grotesk", sans-serif;
+    --font-mono: "JetBrains Mono", monospace;
 }
 
 @layer base {
@@ -47,7 +52,7 @@
         @apply border-border;
     }
     body {
-        @apply bg-background text-foreground antialiased selection:bg-primary/30 selection:text-primary-foreground;
+        @apply bg-background text-foreground antialiased selection:bg-primary/25 selection:text-primary;
         font-family: var(--font-sans);
     }
 
@@ -58,7 +63,7 @@
     h5,
     h6 {
         font-family: var(--font-display);
-        @apply font-bold tracking-tight;
+        @apply font-semibold tracking-tight;
     }
 }
 
@@ -66,34 +71,81 @@
 ::-webkit-scrollbar {
     width: 10px;
 }
-
 ::-webkit-scrollbar-track {
     background: hsl(var(--background));
 }
-
 ::-webkit-scrollbar-thumb {
     background: hsl(var(--secondary));
     border-radius: 5px;
 }
-
 ::-webkit-scrollbar-thumb:hover {
-    background: hsl(var(--primary) / 0.5);
+    background: hsl(var(--primary) / 0.4);
 }
 
-/* Glassmorphism Utilities */
-.glass {
-    @apply bg-background/60 backdrop-blur-xl border border-white/10;
+.font-mono-tag {
+    font-family: var(--font-mono);
 }
 
-.glass-card {
-    @apply bg-card/50 backdrop-blur-md border border-white/5 hover:border-primary/50 transition-colors duration-300;
+/* ============ NEUMORPHIC SURFACE SYSTEM ============ */
+
+/* Large raised panel — cards, hero photo frame, sections */
+.neu-raised {
+    background: hsl(var(--background));
+    box-shadow:
+        12px 12px 24px hsl(var(--neu-dark) / 0.9),
+        -12px -12px 24px hsl(var(--neu-light) / 0.9);
 }
 
-/* Animation Utilities */
-.text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-white via-white to-white/50;
+/* Smaller raised element — buttons, chips, icon wells */
+.neu-raised-sm {
+    background: hsl(var(--background));
+    box-shadow:
+        6px 6px 12px hsl(var(--neu-dark) / 0.85),
+        -6px -6px 12px hsl(var(--neu-light) / 0.85);
 }
 
-.text-gradient-primary {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-purple-400 to-pink-400;
+/* Pressed / inset — form fields, active nav state, "grooves" */
+.neu-inset {
+    background: hsl(var(--background));
+    box-shadow:
+        inset 5px 5px 10px hsl(var(--neu-dark) / 0.9),
+        inset -5px -5px 10px hsl(var(--neu-light) / 0.85);
+}
+
+.neu-inset-lg {
+    background: hsl(var(--background));
+    box-shadow:
+        inset 8px 8px 16px hsl(var(--neu-dark) / 0.9),
+        inset -8px -8px 16px hsl(var(--neu-light) / 0.85);
+}
+
+/* Flat bar — nav, subtle dividers that don't need full depth */
+.neu-flat {
+    background: hsl(var(--background));
+    box-shadow: 0 6px 16px hsl(var(--neu-dark) / 0.5);
+}
+
+/* Interactive press feedback */
+.neu-pressable {
+    transition:
+        box-shadow 0.15s ease,
+        transform 0.15s ease;
+}
+.neu-pressable:active {
+    box-shadow:
+        inset 4px 4px 8px hsl(var(--neu-dark) / 0.9),
+        inset -4px -4px 8px hsl(var(--neu-light) / 0.85);
+    transform: scale(0.98);
+}
+
+.neu-pressable-sm {
+    transition:
+        box-shadow 0.15s ease,
+        transform 0.15s ease;
+}
+.neu-pressable-sm:active {
+    box-shadow:
+        inset 3px 3px 6px hsl(var(--neu-dark) / 0.9),
+        inset -3px -3px 6px hsl(var(--neu-light) / 0.85);
+    transform: scale(0.96);
 }
