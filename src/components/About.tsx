@@ -26,7 +26,7 @@ export function About() {
     ];
 
     return (
-        <section id="about" className="py-24 border-t border-white/[0.06]">
+        <section id="about" className="py-24">
             <div className="container mx-auto px-6">
                 <div className="grid md:grid-cols-[0.9fr_1.1fr] gap-16 items-start">
                     <motion.div
@@ -36,9 +36,11 @@ export function About() {
                         transition={{ duration: 0.5 }}
                         className="space-y-5"
                     >
-                        <p className="font-mono-tag text-sm text-muted-foreground">
-                            // about
-                        </p>
+                        <div className="inline-block px-4 py-2 rounded-full neu-inset">
+                            <span className="font-mono-tag text-sm text-muted-foreground">
+                                // about
+                            </span>
+                        </div>
                         <h3 className="text-2xl md:text-3xl font-semibold leading-snug">
                             I work across the stack, with a bias toward simple,
                             direct solutions.
@@ -58,7 +60,7 @@ export function About() {
                         </div>
                     </motion.div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-white/[0.06] border border-white/[0.06] rounded-md overflow-hidden">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                         {features.map((feature, idx) => (
                             <motion.div
                                 key={idx}
@@ -69,9 +71,9 @@ export function About() {
                                     duration: 0.4,
                                     delay: idx * 0.06,
                                 }}
-                                className="p-6 bg-background hover:bg-white/[0.02] transition-colors"
+                                className="p-6 rounded-3xl neu-raised"
                             >
-                                <div className="text-primary mb-4">
+                                <div className="w-11 h-11 rounded-2xl neu-inset flex items-center justify-center mb-4 text-primary">
                                     {feature.icon}
                                 </div>
                                 <h4 className="text-base font-semibold mb-2">

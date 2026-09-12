@@ -34,7 +34,7 @@ export function Navigation() {
                 animate={{ y: 0 }}
                 transition={{ duration: 0.4 }}
                 className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-                    isScrolled ? "py-4 glass" : "py-6 bg-transparent"
+                    isScrolled ? "py-3 neu-flat" : "py-6 bg-transparent"
                 }`}
             >
                 <div className="container mx-auto px-6 flex justify-between items-center">
@@ -42,20 +42,22 @@ export function Navigation() {
                         to="hero"
                         smooth={true}
                         duration={500}
-                        className="font-mono-tag text-lg font-medium cursor-pointer text-foreground hover:text-primary transition-colors"
+                        className="w-10 h-10 rounded-2xl neu-raised-sm flex items-center justify-center font-mono-tag text-sm font-medium cursor-pointer text-foreground"
                     >
                         sd<span className="text-primary">.</span>
                     </Link>
 
                     {/* Desktop Nav */}
-                    <div className="hidden md:flex items-center space-x-8">
+                    <div className="hidden md:flex items-center gap-2 p-1.5 rounded-2xl neu-inset">
                         {navLinks.map((link) => (
                             <Link
                                 key={link.name}
                                 to={link.to}
                                 smooth={true}
                                 duration={500}
-                                className="text-sm font-medium text-muted-foreground hover:text-foreground cursor-pointer transition-colors"
+                                spy={true}
+                                activeClass="neu-raised-sm text-foreground"
+                                className="px-4 py-2 rounded-xl text-sm font-medium text-muted-foreground hover:text-foreground cursor-pointer transition-colors"
                             >
                                 {link.name}
                             </Link>
@@ -64,16 +66,19 @@ export function Navigation() {
                             <a
                                 key={link.name}
                                 href={link.to}
-                                className="text-sm font-medium text-muted-foreground hover:text-foreground cursor-pointer transition-colors"
+                                className="px-4 py-2 rounded-xl text-sm font-medium text-muted-foreground hover:text-foreground cursor-pointer transition-colors"
                             >
                                 {link.name}
                             </a>
                         ))}
+                    </div>
+
+                    <div className="hidden md:block">
                         <Link
                             to="contact"
                             smooth={true}
                             duration={500}
-                            className="px-4 py-2 rounded-md border border-white/10 text-foreground hover:border-white/30 transition-colors font-medium text-sm cursor-pointer"
+                            className="px-5 py-2.5 rounded-2xl neu-raised-sm neu-pressable-sm text-foreground font-medium text-sm cursor-pointer"
                         >
                             Contact
                         </Link>
@@ -81,13 +86,13 @@ export function Navigation() {
 
                     {/* Mobile Menu Toggle */}
                     <button
-                        className="md:hidden text-foreground hover:text-primary transition-colors"
+                        className="md:hidden w-10 h-10 rounded-2xl neu-raised-sm neu-pressable-sm flex items-center justify-center text-foreground"
                         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                     >
                         {isMobileMenuOpen ? (
-                            <X size={22} />
+                            <X size={20} />
                         ) : (
-                            <Menu size={22} />
+                            <Menu size={20} />
                         )}
                     </button>
                 </div>
@@ -101,7 +106,7 @@ export function Navigation() {
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.2 }}
-                        className="fixed inset-0 z-40 bg-background/98 backdrop-blur-xl md:hidden flex flex-col justify-center items-center space-y-8"
+                        className="fixed inset-0 z-40 bg-background md:hidden flex flex-col justify-center items-center gap-5"
                     >
                         {navLinks.map((link) => (
                             <Link
@@ -110,7 +115,7 @@ export function Navigation() {
                                 smooth={true}
                                 duration={500}
                                 onClick={() => setIsMobileMenuOpen(false)}
-                                className="text-2xl font-display font-medium text-foreground hover:text-primary transition-colors cursor-pointer"
+                                className="px-8 py-4 rounded-2xl neu-raised text-xl font-display font-medium text-foreground cursor-pointer"
                             >
                                 {link.name}
                             </Link>
@@ -120,7 +125,7 @@ export function Navigation() {
                                 key={link.name}
                                 href={link.to}
                                 onClick={() => setIsMobileMenuOpen(false)}
-                                className="text-2xl font-display font-medium text-foreground hover:text-primary transition-colors cursor-pointer"
+                                className="px-8 py-4 rounded-2xl neu-raised text-xl font-display font-medium text-foreground cursor-pointer"
                             >
                                 {link.name}
                             </a>

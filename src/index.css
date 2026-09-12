@@ -5,37 +5,41 @@
 @tailwind utilities;
 
 :root {
-    /* Minimal graphite palette — cool near-black, single muted accent */
-    --background: 220 14% 5%;
-    --foreground: 210 15% 92%;
+    /* Neumorphic white/grey — single base color, depth comes from shadow only */
+    --background: 220 23% 92%;
+    --foreground: 222 20% 20%;
 
-    --card: 220 13% 7%;
-    --card-foreground: 210 15% 92%;
+    --card: 220 23% 92%;
+    --card-foreground: 222 20% 20%;
 
-    --popover: 220 13% 7%;
-    --popover-foreground: 210 15% 92%;
+    --popover: 220 23% 92%;
+    --popover-foreground: 222 20% 20%;
 
-    /* Accent — muted amber, used like a cursor, not a glow */
-    --primary: 38 42% 58%;
-    --primary-foreground: 220 14% 8%;
+    /* Accent — warm amber, reserved for interactive/active states */
+    --primary: 32 85% 50%;
+    --primary-foreground: 220 23% 97%;
 
-    --secondary: 220 10% 13%;
-    --secondary-foreground: 210 15% 92%;
+    --secondary: 220 20% 88%;
+    --secondary-foreground: 222 20% 20%;
 
-    --muted: 220 10% 13%;
-    --muted-foreground: 220 8% 58%;
+    --muted: 220 20% 88%;
+    --muted-foreground: 222 10% 45%;
 
-    --accent: 38 42% 58%;
-    --accent-foreground: 220 14% 8%;
+    --accent: 32 85% 50%;
+    --accent-foreground: 220 23% 97%;
 
-    --destructive: 6 60% 45%;
-    --destructive-foreground: 210 15% 92%;
+    --destructive: 6 65% 48%;
+    --destructive-foreground: 220 23% 97%;
 
-    --border: 220 10% 16%;
-    --input: 220 10% 16%;
-    --ring: 38 42% 58%;
+    --border: 220 15% 80%;
+    --input: 220 15% 80%;
+    --ring: 32 85% 50%;
 
-    --radius: 0.375rem;
+    --radius: 1.25rem;
+
+    /* Neumorphic shadow pair — white highlight, soft grey shadow */
+    --neu-dark: 220 25% 70%;
+    --neu-light: 0 0% 100%;
 
     /* Typography */
     --font-sans: "Outfit", sans-serif;
@@ -67,39 +71,81 @@
 ::-webkit-scrollbar {
     width: 10px;
 }
-
 ::-webkit-scrollbar-track {
     background: hsl(var(--background));
 }
-
 ::-webkit-scrollbar-thumb {
     background: hsl(var(--secondary));
     border-radius: 5px;
 }
-
 ::-webkit-scrollbar-thumb:hover {
     background: hsl(var(--primary) / 0.4);
 }
 
-/* Structural utilities — hairline, not shadow-based */
-.glass {
-    @apply bg-background/70 backdrop-blur-md border-b border-white/[0.06];
-}
-
 .font-mono-tag {
     font-family: var(--font-mono);
-    letter-spacing: 0;
 }
 
-/* Subtle dot grid, used instead of blurred color blobs */
-.bg-dot-grid {
-    background-image: radial-gradient(
-        hsl(var(--foreground) / 0.08) 1px,
-        transparent 1px
-    );
-    background-size: 24px 24px;
+/* ============ NEUMORPHIC SURFACE SYSTEM ============ */
+
+/* Large raised panel — cards, hero photo frame, sections */
+.neu-raised {
+    background: hsl(var(--background));
+    box-shadow:
+        12px 12px 24px hsl(var(--neu-dark) / 0.9),
+        -12px -12px 24px hsl(var(--neu-light) / 0.9);
 }
 
-.text-accent-line {
-    color: hsl(var(--primary));
+/* Smaller raised element — buttons, chips, icon wells */
+.neu-raised-sm {
+    background: hsl(var(--background));
+    box-shadow:
+        6px 6px 12px hsl(var(--neu-dark) / 0.85),
+        -6px -6px 12px hsl(var(--neu-light) / 0.85);
+}
+
+/* Pressed / inset — form fields, active nav state, "grooves" */
+.neu-inset {
+    background: hsl(var(--background));
+    box-shadow:
+        inset 5px 5px 10px hsl(var(--neu-dark) / 0.9),
+        inset -5px -5px 10px hsl(var(--neu-light) / 0.85);
+}
+
+.neu-inset-lg {
+    background: hsl(var(--background));
+    box-shadow:
+        inset 8px 8px 16px hsl(var(--neu-dark) / 0.9),
+        inset -8px -8px 16px hsl(var(--neu-light) / 0.85);
+}
+
+/* Flat bar — nav, subtle dividers that don't need full depth */
+.neu-flat {
+    background: hsl(var(--background));
+    box-shadow: 0 6px 16px hsl(var(--neu-dark) / 0.5);
+}
+
+/* Interactive press feedback */
+.neu-pressable {
+    transition:
+        box-shadow 0.15s ease,
+        transform 0.15s ease;
+}
+.neu-pressable:active {
+    box-shadow:
+        inset 4px 4px 8px hsl(var(--neu-dark) / 0.9),
+        inset -4px -4px 8px hsl(var(--neu-light) / 0.85);
+    transform: scale(0.98);
+}
+
+.neu-pressable-sm {
+    transition:
+        box-shadow 0.15s ease,
+        transform 0.15s ease;
+}
+.neu-pressable-sm:active {
+    box-shadow:
+        inset 3px 3px 6px hsl(var(--neu-dark) / 0.9),
+        inset -3px -3px 6px hsl(var(--neu-light) / 0.85);
+    transform: scale(0.96);
 }

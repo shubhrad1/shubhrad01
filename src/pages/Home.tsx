@@ -17,11 +17,13 @@ export default function Home() {
 
     return (
         <div className="min-h-screen bg-background text-foreground font-sans overflow-x-hidden selection:bg-primary/25">
-            {/* Scroll Progress Bar */}
-            <motion.div
-                className="fixed top-0 left-0 right-0 h-0.5 bg-primary origin-left z-50"
-                style={{ scaleX }}
-            />
+            {/* Scroll Progress — inset groove with a filled amber track */}
+            <div className="fixed top-0 left-0 right-0 h-1 neu-inset z-50">
+                <motion.div
+                    className="h-full bg-primary origin-left rounded-r-full"
+                    style={{ scaleX }}
+                />
+            </div>
 
             <Navigation />
 

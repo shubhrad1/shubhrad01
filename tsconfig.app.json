@@ -30,5 +30,5 @@
         "noFallthroughCasesInSwitch": true,
         "noUncheckedSideEffectImports": true
     },
-    "include": ["src_dec", "src/components/Contact.tsx"]
+    "include": ["src_dec"]
 }

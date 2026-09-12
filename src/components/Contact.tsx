@@ -61,14 +61,14 @@ export function Contact() {
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.3 }}
-                        className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center"
+                        className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center"
                     >
                         <motion.div
                             initial={{ scale: 0.95 }}
                             animate={{ scale: 1 }}
                             exit={{ scale: 0.95 }}
                             transition={{ duration: 0.2 }}
-                            className="bg-card p-6 rounded-md border border-white/10 flex flex-col items-center gap-4"
+                            className="p-8 rounded-3xl neu-raised flex flex-col items-center gap-4"
                         >
                             <Loader2 className="w-6 h-6 animate-spin text-primary" />
                             <p className="text-foreground font-medium text-sm">
@@ -78,20 +78,19 @@ export function Contact() {
                     </motion.div>
                 )}
             </AnimatePresence>
-            <section
-                id="contact"
-                className="py-24 border-t border-white/[0.06]"
-            >
+            <section id="contact" className="py-24">
                 <div className="container mx-auto px-6">
                     <div className="max-w-2xl mb-14">
-                        <motion.p
+                        <motion.div
                             initial={{ opacity: 0, y: 12 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            className="font-mono-tag text-sm text-muted-foreground mb-3"
+                            className="inline-block px-4 py-2 rounded-full neu-inset mb-4"
                         >
-                            // contact
-                        </motion.p>
+                            <span className="font-mono-tag text-sm text-muted-foreground">
+                                // contact
+                            </span>
+                        </motion.div>
                         <motion.h2
                             initial={{ opacity: 0, y: 12 }}
                             whileInView={{ opacity: 1, y: 0 }}
@@ -112,11 +111,10 @@ export function Contact() {
                             initial={{ opacity: 0, y: 16 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            className="space-y-4"
                         >
-                            <div className="border border-white/[0.08] rounded-md p-6">
+                            <div className="p-6 rounded-3xl neu-raised">
                                 <div className="flex items-start gap-4">
-                                    <div className="w-9 h-9 rounded flex items-center justify-center shrink-0 border border-white/10 text-primary">
+                                    <div className="w-11 h-11 rounded-2xl neu-inset flex items-center justify-center shrink-0 text-primary">
                                         <Mail className="w-4 h-4" />
                                     </div>
                                     <div>
@@ -138,7 +136,7 @@ export function Contact() {
                             initial={{ opacity: 0, y: 16 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            className="bg-card p-6 rounded-md border border-white/[0.08]"
+                            className="p-6 rounded-3xl neu-raised"
                         >
                             <form
                                 name="contact"
@@ -167,7 +165,7 @@ export function Contact() {
                                         value={formData.name}
                                         onChange={handleChange}
                                         placeholder="Your name"
-                                        className="bg-background border-white/10 focus:border-primary/50 focus:ring-primary/20 h-11 rounded-md"
+                                        className="neu-inset border-0 h-12 rounded-2xl focus-visible:ring-primary/40"
                                         required
                                     />
                                 </div>
@@ -185,7 +183,7 @@ export function Contact() {
                                         value={formData.email}
                                         onChange={handleChange}
                                         placeholder="you@example.com"
-                                        className="bg-background border-white/10 focus:border-primary/50 focus:ring-primary/20 h-11 rounded-md"
+                                        className="neu-inset border-0 h-12 rounded-2xl focus-visible:ring-primary/40"
                                         required
                                     />
                                 </div>
@@ -203,7 +201,7 @@ export function Contact() {
                                         value={formData.message}
                                         onChange={handleChange}
                                         placeholder="What's on your mind?"
-                                        className="bg-background border-white/10 focus:border-primary/50 focus:ring-primary/20 min-h-[130px] rounded-md resize-none"
+                                        className="neu-inset border-0 min-h-[130px] rounded-2xl resize-none focus-visible:ring-primary/40"
                                         required
                                     />
                                 </div>
@@ -213,7 +211,7 @@ export function Contact() {
 
                                 <button
                                     type="submit"
-                                    className="w-full py-3 rounded-md bg-foreground text-background font-medium hover:bg-foreground/90 disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center justify-center gap-2"
+                                    className="w-full py-3.5 rounded-2xl neu-raised-sm neu-pressable font-medium disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                                 >
                                     Send message
                                     <Send className="w-4 h-4" />

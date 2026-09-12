@@ -33,7 +33,7 @@ const skillCategories = [
 
 export function Skills() {
     return (
-        <section id="skills" className="py-24 border-t border-white/[0.06]">
+        <section id="skills" className="py-24">
             <div className="container mx-auto px-6">
                 <div className="max-w-4xl mx-auto">
                     <motion.div
@@ -42,15 +42,17 @@ export function Skills() {
                         viewport={{ once: true }}
                         className="mb-14"
                     >
-                        <p className="font-mono-tag text-sm text-muted-foreground mb-3">
-                            // skills
-                        </p>
+                        <div className="inline-block px-4 py-2 rounded-full neu-inset mb-4">
+                            <span className="font-mono-tag text-sm text-muted-foreground">
+                                // skills
+                            </span>
+                        </div>
                         <h2 className="text-2xl md:text-3xl font-semibold">
                             Tools I reach for
                         </h2>
                     </motion.div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/[0.06] border border-white/[0.06] rounded-md overflow-hidden">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         {skillCategories.map((category, idx) => (
                             <motion.div
                                 key={category.title}
@@ -58,7 +60,7 @@ export function Skills() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: idx * 0.06 }}
-                                className="p-6 bg-background"
+                                className="p-6 rounded-3xl neu-raised"
                             >
                                 <h3 className="text-sm font-semibold mb-4 text-muted-foreground">
                                     {category.title}
@@ -67,7 +69,7 @@ export function Skills() {
                                     {category.skills.map((skill) => (
                                         <span
                                             key={skill}
-                                            className="font-mono-tag px-2.5 py-1 rounded border border-white/10 text-xs text-foreground/90"
+                                            className="font-mono-tag px-3 py-1.5 rounded-xl neu-inset text-xs text-foreground/90"
                                         >
                                             {skill}
                                         </span>
