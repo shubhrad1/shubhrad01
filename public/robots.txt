@@ -1,0 +1,7 @@
+# Allow all search engines to crawl the site
+User-agent: *
+Disallow:
+
+# Disallow crawling of specific paths (optional)
+Disallow: /admin/
+Disallow: /private/

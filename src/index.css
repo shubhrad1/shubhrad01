@@ -1,45 +1,46 @@
-@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-    /* Modern Dark Mode Aesthetic Palette - Deep, Rich, Minimal */
-    --background: 240 10% 3.9%;
-    --foreground: 0 0% 98%;
+    /* Minimal graphite palette — cool near-black, single muted accent */
+    --background: 220 14% 5%;
+    --foreground: 210 15% 92%;
 
-    --card: 240 10% 3.9%;
-    --card-foreground: 0 0% 98%;
+    --card: 220 13% 7%;
+    --card-foreground: 210 15% 92%;
 
-    --popover: 240 10% 3.9%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 220 13% 7%;
+    --popover-foreground: 210 15% 92%;
 
-    /* Vibrant Accent - Electric Indigo/Violet */
-    --primary: 263 70% 50%;
-    --primary-foreground: 210 40% 98%;
+    /* Accent — muted amber, used like a cursor, not a glow */
+    --primary: 38 42% 58%;
+    --primary-foreground: 220 14% 8%;
 
-    --secondary: 240 4% 16%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 220 10% 13%;
+    --secondary-foreground: 210 15% 92%;
 
-    --muted: 240 4% 16%;
-    --muted-foreground: 240 5% 65%;
+    --muted: 220 10% 13%;
+    --muted-foreground: 220 8% 58%;
 
-    --accent: 263 70% 50%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 38 42% 58%;
+    --accent-foreground: 220 14% 8%;
 
-    --destructive: 0 63% 31%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 6 60% 45%;
+    --destructive-foreground: 210 15% 92%;
 
-    --border: 240 4% 16%;
-    --input: 240 4% 16%;
-    --ring: 263 70% 50%;
+    --border: 220 10% 16%;
+    --input: 220 10% 16%;
+    --ring: 38 42% 58%;
 
-    --radius: 0.75rem;
+    --radius: 0.375rem;
 
     /* Typography */
     --font-sans: "Outfit", sans-serif;
     --font-display: "Space Grotesk", sans-serif;
+    --font-mono: "JetBrains Mono", monospace;
 }
 
 @layer base {
@@ -47,7 +48,7 @@
         @apply border-border;
     }
     body {
-        @apply bg-background text-foreground antialiased selection:bg-primary/30 selection:text-primary-foreground;
+        @apply bg-background text-foreground antialiased selection:bg-primary/25 selection:text-primary;
         font-family: var(--font-sans);
     }
 
@@ -58,7 +59,7 @@
     h5,
     h6 {
         font-family: var(--font-display);
-        @apply font-bold tracking-tight;
+        @apply font-semibold tracking-tight;
     }
 }
 
@@ -77,23 +78,28 @@
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: hsl(var(--primary) / 0.5);
+    background: hsl(var(--primary) / 0.4);
 }
 
-/* Glassmorphism Utilities */
+/* Structural utilities — hairline, not shadow-based */
 .glass {
-    @apply bg-background/60 backdrop-blur-xl border border-white/10;
+    @apply bg-background/70 backdrop-blur-md border-b border-white/[0.06];
 }
 
-.glass-card {
-    @apply bg-card/50 backdrop-blur-md border border-white/5 hover:border-primary/50 transition-colors duration-300;
+.font-mono-tag {
+    font-family: var(--font-mono);
+    letter-spacing: 0;
 }
 
-/* Animation Utilities */
-.text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-white via-white to-white/50;
+/* Subtle dot grid, used instead of blurred color blobs */
+.bg-dot-grid {
+    background-image: radial-gradient(
+        hsl(var(--foreground) / 0.08) 1px,
+        transparent 1px
+    );
+    background-size: 24px 24px;
 }
 
-.text-gradient-primary {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-purple-400 to-pink-400;
+.text-accent-line {
+    color: hsl(var(--primary));
 }

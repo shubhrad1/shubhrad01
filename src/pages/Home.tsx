@@ -16,10 +16,10 @@ export default function Home() {
     });
 
     return (
-        <div className="min-h-screen bg-background text-foreground font-sans overflow-x-hidden selection:bg-primary/30">
+        <div className="min-h-screen bg-background text-foreground font-sans overflow-x-hidden selection:bg-primary/25">
             {/* Scroll Progress Bar */}
             <motion.div
-                className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-purple-500 to-pink-500 origin-left z-50"
+                className="fixed top-0 left-0 right-0 h-0.5 bg-primary origin-left z-50"
                 style={{ scaleX }}
             />
 
